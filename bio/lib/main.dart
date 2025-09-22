@@ -1,5 +1,6 @@
 import 'package:bio/Product.dart';
 import 'package:bio/product_card.dart';
+import 'package:bio/utils/guild_carousel.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -44,6 +45,14 @@ class HomePageState extends State<HomePage> {
   // List of categories for filtering. The 'All' category shows all products.
   final List<String> categories = ['All', 'Công nghệ', 'Gia dụng', 'Decor'];
   String selectedCategory = 'All';
+
+  // List of Guild Images
+  final List<String> guideImages = [
+    // Dùng ảnh mẫu trước; bạn thay bằng ảnh hướng dẫn thật (asset/network)
+    'assets/images/guide_0.png',
+    'assets/images/guide_1.png',
+    'assets/images/guide_2.png',
+  ];
   final TextEditingController _searchController = TextEditingController();
 
   // Sample data representing products. In a real application, this data
@@ -306,6 +315,9 @@ class HomePageState extends State<HomePage> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  // Guide images
+                  GuideCarousel(images: guideImages),
+                  const SizedBox(height: 12),
                   Text(
                     'Sản phẩm trong video đều ở bên dưới!👇',
                     style: TextStyle(fontFamily: 'PatrickHand', fontSize: 16),
